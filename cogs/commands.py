@@ -28,10 +28,6 @@ class commands_cog(commands.Cog):
       embed.set_image(url=ctx.author.avatar)
       embed.set_footer(text=str(ctx.author))
       await ctx.reply(embed=embed)
-
-  @commands.command()
-  async def testlol(self, ctx):
-    await ctx.reply('here')
     
   @commands.command()
   async def ss(self, ctx):
