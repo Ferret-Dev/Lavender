@@ -25,25 +25,29 @@ class status_cog(commands.Cog):
     #list of statuses
     statuses = [
       'in ' + server_number + ' servers',
-      'with your mom at night',
+      'with your mom last night',
+      'on Top.gg!',
       'with ' + total_people + ' people',
       'please help me dear god',
-      'at ' + ping_number + 'ms ping',
+      'Changed',
+      'Arch Linux',
       'black jack. Or not.',
       'Lethal League Blaze',
       'on python v' + py_version,
       'with your junk ;)',
       '!-help for more info',
-      'with some thick knots UwU',
-      'Changed']
+      'with some thick knots UwU',]
     #running random list
     while not self.bot.is_closed():
       status = statuses[listnum]
-      await self.bot.change_presence(activity=discord.Game(name=status))
-      await asyncio.sleep(10)
-      listnum += 1
-      if listnum >= 11:
-        listnum = 0
+      try:
+        await self.bot.change_presence(activity=discord.Game(name=status))
+        await asyncio.sleep(10)
+        listnum += 1
+        if listnum >= 13:
+          listnum = 0
+      except ConnectionResetError:
+        pass
 #setup
 async def setup(bot):
   await bot.add_cog(status_cog(bot))
